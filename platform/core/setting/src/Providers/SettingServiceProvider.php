@@ -88,17 +88,17 @@ class SettingServiceProvider extends ServiceProvider
                     ]);
             });
 
-        PanelSectionManager::group('system')->beforeRendering(function () {
-            PanelSectionManager::registerItem(
-                SystemPanelSection::class,
-                fn () => PanelSectionItem::make('cronjob')
-                    ->setTitle(trans('core/setting::setting.cronjob.name'))
-                    ->withIcon('ti ti-calendar-event')
-                    ->withDescription(trans('core/setting::setting.cronjob.description'))
-                    ->withPriority(50)
-                    ->withRoute('settings.cronjob')
-            );
-        });
+        // PanelSectionManager::group('system')->beforeRendering(function () {
+        //     PanelSectionManager::registerItem(
+        //         SystemPanelSection::class,
+        //         fn () => PanelSectionItem::make('cronjob')
+        //             ->setTitle(trans('core/setting::setting.cronjob.name'))
+        //             ->withIcon('ti ti-calendar-event')
+        //             ->withDescription(trans('core/setting::setting.cronjob.description'))
+        //             ->withPriority(50)
+        //             ->withRoute('settings.cronjob')
+        //     );
+        // });
 
         $events->listen(PanelSectionsRendering::class, PushDashboardMenuToOtherSectionPanel::class);
 
