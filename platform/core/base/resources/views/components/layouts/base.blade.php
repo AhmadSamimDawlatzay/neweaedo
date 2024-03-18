@@ -27,14 +27,14 @@
         >
     @endif
 
-    <meta
-        name="description"
-        content="{{ $copyright = strip_tags(trans('core/base::layouts.copyright', ['year' => Carbon\Carbon::now()->year, 'company' => setting('admin_title', config('core.base.general.base_name')), 'version' => get_cms_version()])) }}"
-    >
-    <meta
-        property="og:description"
-        content="{{ $copyright }}"
-    >
+    {{-- <meta --}}
+        {{-- name="description" --}}
+        {{-- content="{{ $copyright = strip_tags(trans('core/base::layouts.copyright', ['year' => Carbon\Carbon::now()->year, 'company' => setting('admin_title', config('core.base.general.base_name')), 'version' => get_cms_version()])) }}" --}}
+    {{-- > --}}
+    {{-- <meta --}}
+        {{-- property="og:description" --}}
+        {{-- content="{{ $copyright }}" --}}
+    {{-- > --}}
 
     @include('core/base::components.layouts.header')
 

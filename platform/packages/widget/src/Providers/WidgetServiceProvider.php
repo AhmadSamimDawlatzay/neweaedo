@@ -59,16 +59,16 @@ class WidgetServiceProvider extends ServiceProvider
             register_widget(Text::class);
         });
 
-        DashboardMenu::default()->beforeRetrieving(function () {
-            DashboardMenu::make()
-                ->registerItem([
-                    'id' => 'cms-core-widget',
-                    'priority' => 3,
-                    'parent_id' => 'cms-core-appearance',
-                    'name' => 'packages/widget::widget.name',
-                    'route' => 'widgets.index',
-                ]);
-        });
+        // DashboardMenu::default()->beforeRetrieving(function () {
+        //     DashboardMenu::make()
+        //         ->registerItem([
+        //             'id' => 'cms-core-widget',
+        //             'priority' => 3,
+        //             'parent_id' => 'cms-core-appearance',
+        //             'name' => 'packages/widget::widget.name',
+        //             'route' => 'widgets.index',
+        //         ]);
+        // });
 
         $this->app['events']->listen(RenderingAdminBar::class, function () {
             AdminBar::registerLink(

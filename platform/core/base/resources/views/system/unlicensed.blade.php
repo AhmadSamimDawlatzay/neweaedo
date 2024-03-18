@@ -40,8 +40,7 @@
                             </span>
                             <span class="col">
                                 <strong class="d-block">Get Support From Our Dev Team</strong>
-                                <span class="d-block text-secondary">You've a problem. Don't worry. We are here to help
-                                    you everytime you need.</span>
+                                <span class="d-block text-secondary">You've a problem.</span>
                             </span>
                         </li>
 
@@ -53,8 +52,8 @@
                                 />
                             </span>
                             <span class="col">
-                                <strong class="d-block">Get Free Plugins</strong>
-                                <span class="d-block text-secondary">Unlimited plugins, extended your website from <a
+                                <strong class="d-block">Get</strong>
+                                <span class="d-block text-secondary">Unlimited<a
                                         href="https://marketplace.botble.com"
                                         target="_blank"
                                     >our marketplace <x-core::icon name="ti ti-external-link" /></a>.</span>
