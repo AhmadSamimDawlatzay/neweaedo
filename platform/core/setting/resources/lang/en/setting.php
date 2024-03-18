@@ -99,7 +99,7 @@ return [
     ],
     'datatable' => [
         'title' => 'Datatables',
-        'description' => 'Settings for datatables',
+        'description' => 'Settings for datatables............',
         'form' => [
             'show_column_visibility' => 'Default show column visibility?',
             'show_export_button' => 'Default show export button?',

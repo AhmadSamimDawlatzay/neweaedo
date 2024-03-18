@@ -18,7 +18,7 @@ return [
     'locales' => 'Locales',
     'no_translations' => 'No translations found for :locale, click on the import button to import translations.',
     'locales_description' => 'Manage and download locales',
-    'theme-translations' => 'Theme Translations',
+    'theme-translations' => 'System Translations',
     'admin-translations' => 'Other Translations',
     'translate_from' => 'Translate from',
     'to' => 'to',
@@ -50,8 +50,8 @@ return [
             'description' => 'View, download and import locales',
         ],
         'theme-translations' => [
-            'title' => 'Theme Translations',
-            'description' => 'Manage the theme translations',
+            'title' => 'System Translations',
+            'description' => 'Manage the system translations',
         ],
         'admin-translations' => [
             'title' => 'Other Translations',

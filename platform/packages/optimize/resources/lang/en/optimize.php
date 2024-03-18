@@ -2,8 +2,8 @@
 
 return [
     'settings' => [
-        'title' => 'Optimize',
-        'description' => 'Minify HTML output, inline CSS, remove comments...',
+        // 'title' => 'Optimize',
+        // 'description' => '',
         'enable' => 'Enable optimize page speed?',
     ],
     'collapse_white_space' => 'Collapse white space',
