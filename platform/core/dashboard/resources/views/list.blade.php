@@ -1,7 +1,7 @@
 @extends(BaseHelper::getAdminMasterLayoutTemplate())
 
 @push('header-action')
-    @if (count($widgets) > 0)
+    {{-- @if (count($widgets) > 0)
         <x-core::button
             color="primary"
             :outlined="true"
@@ -12,10 +12,10 @@
         >
             {{ trans('core/dashboard::dashboard.manage_widgets') }}
         </x-core::button>
-    @endif
+    @endif --}}
 @endpush
 
-@section('content')
+{{-- @section('content')
     <div class="row">
         <div class="col-12">
             @if (config('core.base.general.enable_system_updater') && Auth::user()->isSuperUser())
@@ -66,7 +66,7 @@
             @endforeach
         </div>
     </div>
-@endsection
+@endsection --}}
 
 @push('footer')
     @include('core/dashboard::partials.modals', compact('widgets'))
