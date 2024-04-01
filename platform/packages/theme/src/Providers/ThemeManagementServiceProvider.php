@@ -74,42 +74,42 @@ class ThemeManagementServiceProvider extends ServiceProvider
 
     protected function bootWidgets(): void
     {
-        // if (! class_exists('Botble\Widget\Providers\WidgetServiceProvider')) {
-        //     return;
-        // }
+        if (! class_exists('Botble\Widget\Providers\WidgetServiceProvider')) {
+            return;
+        }
 
-        // if (Theme::hasInheritTheme()) {
-        //     $this->registerWidgetsFromTheme(Theme::getInheritTheme());
-        // }
+        if (Theme::hasInheritTheme()) {
+            $this->registerWidgetsFromTheme(Theme::getInheritTheme());
+        }
 
-        // $this->registerWidgetsFromTheme(Theme::getThemeName());
+        $this->registerWidgetsFromTheme(Theme::getThemeName());
 
-        // add_filter('widget_rendered', function (string|null $html, AbstractWidget $widget) {
-        //     if (! setting('show_theme_guideline_link', false) || ! Auth::guard()->check() || ! Auth::guard()->user()->hasPermission('widgets.index')) {
-        //         return $html;
-        //     }
+        add_filter('widget_rendered', function (string|null $html, AbstractWidget $widget) {
+            if (! setting('show_theme_guideline_link', false) || ! Auth::guard()->check() || ! Auth::guard()->user()->hasPermission('widgets.index')) {
+                return $html;
+            }
 
-        //     if ($widget->getConfig('ignore_guideline')) {
-        //         return $html;
-        //     }
+            if ($widget->getConfig('ignore_guideline')) {
+                return $html;
+            }
 
-        //     $editLink = route('widgets.index') . '?widget=' . $widget->getId();
-        //     $link = view('packages/theme::guideline-link', [
-        //         'html' => $html,
-        //         'editLink' => $editLink,
-        //         'editLabel' => __('Edit this widget'),
-        //     ])->render();
+            $editLink = route('widgets.index') . '?widget=' . $widget->getId();
+            $link = view('packages/theme::guideline-link', [
+                'html' => $html,
+                'editLink' => $editLink,
+                'editLabel' => __('Edit this widget'),
+            ])->render();
 
-        //     return ThemeSupport::insertBlockAfterTopHtmlTags($link, $html);
-        // }, 9999, 2);
+            return ThemeSupport::insertBlockAfterTopHtmlTags($link, $html);
+        }, 9999, 2);
 
-        // add_filter(THEME_FRONT_HEADER, function ($html) {
-        //     if (! setting('show_theme_guideline_link', false) || ! Auth::guard()->check() || ! Auth::guard()->user()->hasPermission('widgets.index')) {
-        //         return $html;
-        //     }
+        add_filter(THEME_FRONT_HEADER, function ($html) {
+            if (! setting('show_theme_guideline_link', false) || ! Auth::guard()->check() || ! Auth::guard()->user()->hasPermission('widgets.index')) {
+                return $html;
+            }
 
-        //     return $html . Html::style('vendor/core/packages/theme/css/guideline.css');
-        // }, 16);
+            return $html . Html::style('vendor/core/packages/theme/css/guideline.css');
+        }, 16);
     }
 
     protected function registerWidgetsFromTheme(string $theme): void

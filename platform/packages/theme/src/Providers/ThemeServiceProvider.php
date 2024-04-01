@@ -111,33 +111,33 @@ class ThemeServiceProvider extends ServiceProvider
         //         );
         // });
 
-        // $this->app['events']->listen(RenderingAdminBar::class, function () {
-        //     admin_bar()
-        //         ->registerLink(trans('packages/theme::theme.name'), route('theme.index'), 'appearance', 'theme.index')
-        //         ->registerLink(
-        //             trans('packages/theme::theme.theme_options'),
-        //             route('theme.options'),
-        //             'appearance',
-        //             'theme.options'
-        //         );
-        // });
+        $this->app['events']->listen(RenderingAdminBar::class, function () {
+            admin_bar()
+                ->registerLink(trans('packages/theme::theme.name'), route('theme.index'), 'appearance', 'theme.index')
+                ->registerLink(
+                    trans('packages/theme::theme.theme_options'),
+                    route('theme.options'),
+                    'appearance',
+                    'theme.options'
+                );
+        });
 
         // $this->app->booted(function () {
         //     $this->app->register(HookServiceProvider::class);
         // });
 
-        // $this->app->register(ThemeManagementServiceProvider::class);
-        // $this->app->register(EventServiceProvider::class);
+        $this->app->register(ThemeManagementServiceProvider::class);
+        $this->app->register(EventServiceProvider::class);
 
-        // if ($this->app->runningInConsole()) {
-        //     $this->commands([
-        //         ThemeActivateCommand::class,
-        //         ThemeRemoveCommand::class,
-        //         ThemeAssetsPublishCommand::class,
-        //         ThemeOptionCheckMissingCommand::class,
-        //         ThemeAssetsRemoveCommand::class,
-        //         ThemeRenameCommand::class,
-        //     ]);
-        // }
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                ThemeActivateCommand::class,
+                ThemeRemoveCommand::class,
+                ThemeAssetsPublishCommand::class,
+                ThemeOptionCheckMissingCommand::class,
+                ThemeAssetsRemoveCommand::class,
+                ThemeRenameCommand::class,
+            ]);
+        }
     }
 }
