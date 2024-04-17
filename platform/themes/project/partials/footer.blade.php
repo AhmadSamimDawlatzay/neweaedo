@@ -1,4 +1,0 @@
-
-        {!! Theme::footer() !!}
-    </body>
-</html>

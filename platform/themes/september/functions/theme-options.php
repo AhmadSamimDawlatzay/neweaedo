@@ -12,7 +12,7 @@ app('events')->listen(RenderingThemeOptionSettings::class, function () {
             'label' => __('Copyright'),
             'attributes' => [
                 'name' => 'copyright',
-                'value' => sprintf('© %s Botble Technologies. All right reserved.', Carbon::now()->year),
+                'value' => sprintf('© %s Naikbeen Technologies. All right reserved.', Carbon::now()->year),
                 'options' => [
                     'class' => 'form-control',
                     'placeholder' => __('Change copyright'),

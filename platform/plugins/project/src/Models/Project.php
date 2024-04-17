@@ -17,7 +17,7 @@ class Project extends BaseModel
         'name',
         'status',
         'image',
-        'descripton',
+        'description',
         'date',
     ];
 

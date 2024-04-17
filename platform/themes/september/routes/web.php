@@ -9,6 +9,10 @@ Route::group(['namespace' => 'Theme\September\Http\Controllers', 'middleware' =>
             'as' => 'public.ajax.cart',
             'uses' => 'SeptemberController@ajaxCart',
         ]);
+
+        Route::get('project','SeptemberController@getProject');
+        Route::get('project/{slug}','SeptemberController@getProjects');
+
     });
 });
 
