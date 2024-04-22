@@ -1,22 +1,21 @@
 <?php
 
-namespace Botble\Project\Providers;
+namespace Botble\Volunteer\Providers;
 
-use Botble\Project\Models\Project;
+use Botble\Volunteer\Models\Volunteer;
 use Botble\Base\Facades\DashboardMenu;
 use Botble\Base\Traits\LoadAndPublishDataTrait;
 use Botble\Base\Supports\ServiceProvider;
 use Illuminate\Routing\Events\RouteMatched;
-use Illuminate\Support\Facades\Schema;
 
-class ProjectServiceProvider extends ServiceProvider
+class VolunteerServiceProvider extends ServiceProvider
 {
     use LoadAndPublishDataTrait;
 
     public function boot(): void
     {
         $this
-            ->setNamespace('plugins/project')
+            ->setNamespace('plugins/volunteer')
             ->loadHelpers()
             ->loadAndPublishConfigurations(['permissions'])
             ->loadMigrations()
@@ -25,25 +24,21 @@ class ProjectServiceProvider extends ServiceProvider
             ->loadRoutes();
 
         if (defined('LANGUAGE_ADVANCED_MODULE_SCREEN_NAME')) {
-            \Botble\LanguageAdvanced\Supports\LanguageAdvancedManager::registerModule(Project::class, [
+            \Botble\LanguageAdvanced\Supports\LanguageAdvancedManager::registerModule(Volunteer::class, [
                 'name',
             ]);
         }
 
         $this->app['events']->listen(RouteMatched::class, function () {
             DashboardMenu::registerItem([
-                'id' => 'cms-plugins-project',
+                'id' => 'cms-plugins-volunteer',
                 'priority' => 5,
                 'parent_id' => null,
-                'name' => 'plugins/project::project.name',
-                'icon' => 'fa fa-pie-chart',
-                'url' => route('project.index'),
-                'permissions' => ['project.index'],
+                'name' => 'plugins/volunteer::volunteer.name',
+                'icon' => 'fa fa-user-circle',
+                'url' => route('volunteer.index'),
+                'permissions' => ['volunteer.index'],
             ]);
         });
-
-        \SlugHelper::registermodule(Project::class,'Project');
-        \SlugHelper::setPrefix(Project::class,'project');
-        Schema::defaultStringLength(191);
     }
 }
