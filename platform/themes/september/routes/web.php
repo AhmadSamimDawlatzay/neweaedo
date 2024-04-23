@@ -13,6 +13,10 @@ Route::group(['namespace' => 'Theme\September\Http\Controllers', 'middleware' =>
         Route::get('project','SeptemberController@getProject');
         Route::get('project/{slug}','SeptemberController@getProjects');
 
+        // volunteer
+        Route::get('volunteer','SeptemberController@getVolunteer');
+        Route::post('volunteer','SeptemberController@storeVolunteer')->name('volunteer');
+
     });
 });
 

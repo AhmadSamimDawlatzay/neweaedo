@@ -25,6 +25,8 @@ class Volunteer extends BaseModel
         'position',
         'experience_level',
         'remark',
+        'email',
+        'phone',
     ];
 
     protected $casts = [
