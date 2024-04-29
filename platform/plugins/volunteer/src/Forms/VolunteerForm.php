@@ -38,19 +38,19 @@ class VolunteerForm extends FormAbstract
             ])
 
             ->add('position', 'text', [
-                'label' => trans('core/base::forms.position'),
+                'label' => __('Position'),
                 'label_attr' => ['class' => 'control-label required'],
                 'attr' => [
-                    'placeholder' => trans('core/base::forms.position_placeholder'),
+                    'placeholder' => __('Position'),
                     'data-counter' => 120,
                 ],
             ])
 
             ->add('experience_level', 'text', [
-                'label' => trans('core/base::forms.experience_level'),
+                'label' => __('Experience level'),
                 'label_attr' => ['class' => 'control-label required'],
                 'attr' => [
-                    'placeholder' => trans('core/base::forms.experience_level_placeholder'),
+                    'placeholder' => __('Experience level'),
                     'data-counter' => 120,
                 ],
             ])

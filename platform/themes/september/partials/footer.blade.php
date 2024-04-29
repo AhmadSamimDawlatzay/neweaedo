@@ -25,7 +25,7 @@
                     <div class="col-md-4 col-sm-6 col-12">
                         @if (is_plugin_active('newsletter'))
                             <aside class="widget widget--footer">
-                                <h3 class="widget__title">{{ __('Subscribe & Receive 10% off your first order') }}</h3>
+                                <h3 class="widget__title">{{ __('Subscribe to our news letter') }}</h3>
                                 <form class="generic-form" method="POST" action="{{ route('public.newsletter.subscribe') }}">
                                     @csrf
                                     <div class="form--subscribe">

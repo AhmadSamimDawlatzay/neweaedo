@@ -6,7 +6,7 @@
 </style>
 <div id="app">
     {!! Theme::content() !!}
-    
+
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
          const Toast = Swal.mixin({
@@ -26,7 +26,7 @@
         });
         Toast.fire({
             // icon: "success",
-            title: " <div class = 'd-flex justify-content-between h4'><span class='mt-2'>Donate us to support the project.</span><a class = 'btn btn-primary btn-lg m-auto' href='#'>Donate</a></div>",
+            title: " <div class = 'd-flex justify-content-between h4'><span class='mt-2'>Donate us to support the project.</span><a class = 'btn btn-primary btn-lg m-auto' href='{{ URL::to("donation") }}'>Donate</a></div>",
         });
     </script>
 </div>

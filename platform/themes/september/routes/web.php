@@ -10,12 +10,22 @@ Route::group(['namespace' => 'Theme\September\Http\Controllers', 'middleware' =>
             'uses' => 'SeptemberController@ajaxCart',
         ]);
 
+        // project
         Route::get('project','SeptemberController@getProject');
         Route::get('project/{slug}','SeptemberController@getProjects');
 
         // volunteer
         Route::get('volunteer','SeptemberController@getVolunteer');
         Route::post('volunteer','SeptemberController@storeVolunteer')->name('volunteer');
+
+
+        // Donate
+        Route::get('donate','SeptemberController@getDonate');
+        Route::post('donate','SeptemberController@storeDonate')->name('donate');
+
+        // donation
+        Route::get('donation','SeptemberController@getDonation');
+        Route::get('donation/{slug}','SeptemberController@getDonations');
 
     });
 });

@@ -1,20 +1,21 @@
 <?php
 
-namespace Botble\Volunteer\Tables;
+namespace Botble\Donate\Tables;
 
 use Botble\Base\Facades\BaseHelper;
 use Botble\Base\Facades\Html;
 use Botble\Base\Enums\BaseStatusEnum;
-use Botble\Volunteer\Models\Volunteer;
+use Botble\Donate\Models\Donate;
 use Botble\Table\Abstracts\TableAbstract;
 use Botble\Table\Actions\DeleteAction;
 use Botble\Table\Actions\EditAction;
 use Botble\Table\BulkActions\DeleteBulkAction;
 use Botble\Table\Columns\ActiveInactiveStatusColumn;
 use Botble\Table\Columns\CreatedAtColumn;
+use Botble\Table\Columns\DonationNameColumn;
 use Botble\Table\Columns\IdColumn;
-use Botble\Table\Columns\ImageColumn;
 use Botble\Table\Columns\NameColumn;
+use Botble\Table\Columns\PhoneColumn;
 use Botble\Table\Columns\StatusColumn;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
@@ -22,17 +23,17 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Http\JsonResponse;
 
-class VolunteerTable extends TableAbstract
+class DonateTable extends TableAbstract
 {
     public function setup(): void
     {
         $this
-            ->model(Volunteer::class)
+            ->model(Donate::class)
             ->addActions([
                 EditAction::make()
-                    ->route('volunteer.edit'),
+                    ->route('donate.edit'),
                 DeleteAction::make()
-                    ->route('volunteer.destroy'),
+                    ->route('donate.destroy'),
             ]);
     }
 
@@ -40,11 +41,11 @@ class VolunteerTable extends TableAbstract
     {
         $data = $this->table
             ->eloquent($this->query())
-            ->editColumn('name', function (Volunteer $item) {
-                if (! $this->hasPermission('volunteer.edit')) {
+            ->editColumn('name', function (Donate $item) {
+                if (! $this->hasPermission('donate.edit')) {
                     return BaseHelper::clean($item->name);
                 }
-                return Html::link(route('volunteer.edit', $item->getKey()), BaseHelper::clean($item->name));
+                return Html::link(route('donate.edit', $item->getKey()), BaseHelper::clean($item->name));
             });
 
         return $this->toJson($data);
@@ -58,7 +59,8 @@ class VolunteerTable extends TableAbstract
             ->select([
                'id',
                'name',
-               'image',
+            //    'donation',
+               'phone',
                'created_at',
                'status',
            ]);
@@ -71,10 +73,10 @@ class VolunteerTable extends TableAbstract
         return [
             IdColumn::make(),
             NameColumn::make(),
-            ImageColumn::make(),
+            // DonationNameColumn::make(),
+            PhoneColumn::make(),
             CreatedAtColumn::make(),
             // StatusColumn::make(),
-            // $table->addColumn(ActiveInactiveStatusColumn::make('status'));
             ActiveInactiveStatusColumn::make(),
 
         ];
@@ -82,13 +84,13 @@ class VolunteerTable extends TableAbstract
 
     public function buttons(): array
     {
-        return $this->addCreateButton(route('volunteer.create'), 'volunteer.create');
+        return $this->addCreateButton(route('donate.create'), 'donate.create');
     }
 
     public function bulkActions(): array
     {
         return [
-            DeleteBulkAction::make()->permission('volunteer.destroy'),
+            DeleteBulkAction::make()->permission('donate.destroy'),
         ];
     }
 

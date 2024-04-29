@@ -158,9 +158,5 @@
       </form>
 
   </div>
-  <div class="section__footer text-center">
-    <div class="custom-pagination">
-      ss
-    </div>
-  </div>
+
 </section>
