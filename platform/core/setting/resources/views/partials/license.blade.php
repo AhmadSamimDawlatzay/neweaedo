@@ -1,4 +1,4 @@
-@php
+{{-- @php
     $manageLicense = auth()
         ->user()
         ->hasPermission('core.manage.license');
@@ -51,4 +51,4 @@
             </x-core-setting::section>
         @endif
     </template>
-</v-license-form>
+</v-license-form> --}}
