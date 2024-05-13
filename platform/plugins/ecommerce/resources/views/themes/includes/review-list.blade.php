@@ -18,7 +18,7 @@
                     {{ $review->created_at->diffForHumans() }}
                 </time>
                 @if ($review->order_created_at)
-                    <div class="small text-muted">{{ __('✅ Purchased :time', ['time' => $review->order_created_at->diffForHumans()]) }}</div>
+                    <div class="small text-muted">{{ __(' :time', ['time' => $review->order_created_at->diffForHumans()]) }}</div>
                 @endif
                 @if (! $review->is_approved)
                     <div class="small text-warning">{{ __('Waiting for approval') }}</div>

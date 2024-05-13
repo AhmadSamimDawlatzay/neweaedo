@@ -27,8 +27,8 @@ class ThemeSupport
         shortcode()
             ->register(
                 'youtube-video',
-                __('YouTube video'),
-                __('Add YouTube video'),
+                __('YouTube'),
+                __('Add YouTube'),
                 function ($shortcode) use ($viewPath) {
                     $url = Youtube::getYoutubeVideoEmbedURL($shortcode->content);
                     $width = $shortcode->width;

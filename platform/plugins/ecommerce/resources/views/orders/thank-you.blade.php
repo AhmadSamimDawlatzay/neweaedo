@@ -1,6 +1,6 @@
 @extends('plugins/ecommerce::orders.master')
 @section('title')
-    {{ __('Order successfully. Order number :id', ['id' => $order->code]) }}
+    {{ __('request successfully. Order number :id', ['id' => $order->code]) }}
 @stop
 @section('content')
 
@@ -16,7 +16,7 @@
                     ></i>
                     <div class="d-inline-block">
                         <h3 class="thank-you-sentence">
-                            {{ __('Your order is successfully placed') }}
+                            {{ __('Your request is successfully placed') }}
                         </h3>
                         <p>{{ __('Thank you for purchasing our products!') }}</p>
                     </div>
@@ -27,7 +27,7 @@
                 <a
                     class="btn payment-checkout-btn"
                     href="{{ BaseHelper::getHomepageUrl() }}"
-                > {{ __('Continue shopping') }} </a>
+                > {{ __('Continue') }} </a>
             </div>
             <div class="col-lg-5 col-md-6 d-none d-md-block right">
 

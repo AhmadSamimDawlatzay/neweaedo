@@ -55,7 +55,7 @@ return [
         ],
         'admin-translations' => [
             'title' => 'Other Translations',
-            'description' => 'Manage the other translations (admin, plugins, packages...)',
+            'description' => 'Manage the other translations (admin, packages...)',
         ],
     ],
 ];
